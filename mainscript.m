@@ -3,7 +3,7 @@
 %
 % This program retreats, plots and analyzes data from the altimeter AltiKa
 % on board the SARAL-satellite. There will be a mainscript for each analyze
-% of different days, since the file's in need to be read are plentiful and
+% of different days, since the files in need to be read are plentiful and
 % different from each other. 
 %
 % There will be approximately filereads of 28 files pr. day. 
