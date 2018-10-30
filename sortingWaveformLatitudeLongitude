@@ -1,0 +1,531 @@
+function [latlonwav] = sortingWaveformLatitudeLongtitude(N1, N2, E1, E2, lat40Hz1, lon40Hz1, data1, lat40Hz2, lon40Hz2, data2, lat40Hz3, lon40Hz3, data3, lat40Hz4, lon40Hz4, data4, lat40Hz5, lon40Hz5, data5, lat40Hz6, lon40Hz6, data6, lat40Hz7, lon40Hz7, data7, lat40Hz8, lon40Hz8, data8, lat40Hz9, lon40Hz9, data9, lat40Hz10, lon40Hz10, data10, lat40Hz11, lon40Hz11, data11, lat40Hz12, lon40Hz12, data12, lat40Hz13, lon40Hz13, data13, lat40Hz14, lon40Hz14, data14, lat40Hz15, lon40Hz15, data15, lat40Hz16, lon40Hz16, data16, lat40Hz17, lon40Hz17, data17, lat40Hz18, lon40Hz18, data18, lat40Hz19, lon40Hz19, data19,lat40Hz20, lon40Hz20, data20, lat40Hz21, lon40Hz21, data21, lat40Hz22, lon40Hz22, data22, lat40Hz23, lon40Hz23, data23, lat40Hz24, lon40Hz24, data24, lat40Hz25, lon40Hz25, data25, lat40Hz26, lon40Hz26, data26, lat40Hz27, lon40Hz27, data27, lat40Hz28, lon40Hz28, data28, lat40Hz29, lon40Hz29, data29)
+%% sortingWaveformLatitudeLongtitde
+%
+% input:    lat40Hz1 - lat40Hz29: latitude values from AltiKa data of 40Hz
+%                                 measurements
+%           lon40Hz1 - lon40Hz29: longitude values from AltiKa data of 40Hz
+%                                 measurements
+%           data1 - data29:       waveform data from AltiKa of 40 Hz
+%                                 measurement
+%
+% output:   latlonwav:            a matrix with all waveforms inkl. correct
+%                                 latitude and longtitude values sortes 
+%                                 according to boundaries
+
+%% Shaping correct data into workable parameters
+
+disp('The function sortingWarmformLatitudeLongtitude has begun. ');
+
+% Degrees to be sorted according to N = latitude and E = longitude
+
+% File 1 - creating and sorting
+waveform40Hz1 = [];
+for i = 1:length(data1(1, 1, :))
+    waveform40Hz1 = [waveform40Hz1, data1(:, :, i)]; 
+end
+waveform40Hz1 = waveform40Hz1';
+data_latlonwav1 = [lat40Hz1 lon40Hz1 waveform40Hz1];
+[rlat, clat] = find((data_latlonwav1(:, 1)) < N1);
+data_latlonwav1(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav1(:, 1)) > N2);
+data_latlonwav1(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav1(:, 2)) < E1);
+data_latlonwav1(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav1(:, 2)) > E2);
+data_latlonwav1(rlat,:)=[];
+
+% File 2 - creating and sorting
+waveform40Hz2 = [];
+for i = 1:length(data2(1, 1, :))
+    waveform40Hz2 = [waveform40Hz2, data2(:, :, i)]; 
+end
+waveform40Hz2 = waveform40Hz2';
+data_latlonwav2 = [lat40Hz2 lon40Hz2 waveform40Hz2];
+[rlat, clat] = find((data_latlonwav2(:, 1)) < N1);
+data_latlonwav2(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav2(:, 1)) > N2);
+data_latlonwav2(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav2(:, 2)) < E1);
+data_latlonwav2(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav2(:, 2)) > E2);
+data_latlonwav2(rlat,:)=[];
+
+% File 3 - creating and sorting
+waveform40Hz3 = [];
+for i = 1:length(data3(1, 1, :))
+    waveform40Hz3 = [waveform40Hz3, data3(:, :, i)]; 
+end
+waveform40Hz3 = waveform40Hz3';
+data_latlonwav3 = [lat40Hz3 lon40Hz3 waveform40Hz3];
+[rlat, clat] = find((data_latlonwav3(:, 1)) < N1);
+data_latlonwav3(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav3(:, 1)) > N2);
+data_latlonwav3(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav3(:, 2)) < E1);
+data_latlonwav3(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav3(:, 2)) > E2);
+data_latlonwav3(rlat,:)=[];
+
+% File 4 - creating and sorting
+waveform40Hz4 = [];
+for i = 1:length(data4(1, 1, :))
+    waveform40Hz4 = [waveform40Hz4, data4(:, :, i)]; 
+end
+waveform40Hz4 = waveform40Hz4';
+data_latlonwav4 = [lat40Hz4 lon40Hz4 waveform40Hz4];
+[rlat, clat] = find((data_latlonwav4(:, 1)) < N1);
+data_latlonwav4(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav4(:, 1)) > N2);
+data_latlonwav4(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav4(:, 2)) < E1);
+data_latlonwav4(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav4(:, 2)) > E2);
+data_latlonwav4(rlat,:)=[];
+
+% File 5 - creating and sorting
+waveform40Hz5 = [];
+for i = 1:length(data5(1, 1, :))
+    waveform40Hz5 = [waveform40Hz5, data5(:, :, i)]; 
+end
+waveform40Hz5 = waveform40Hz5';
+data_latlonwav5 = [lat40Hz5 lon40Hz5 waveform40Hz5];
+[rlat, clat] = find((data_latlonwav5(:, 1)) < N1);
+data_latlonwav5(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav5(:, 1)) > N2);
+data_latlonwav5(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav5(:, 2)) < E1);
+data_latlonwav5(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav5(:, 2)) > E2);
+data_latlonwav5(rlat,:)=[];
+
+% File 6 - creating and sorting
+waveform40Hz6 = [];
+for i = 1:length(data6(1, 1, :))
+    waveform40Hz6 = [waveform40Hz6, data6(:, :, i)]; 
+end
+waveform40Hz6 = waveform40Hz6';
+data_latlonwav6 = [lat40Hz6 lon40Hz6 waveform40Hz6];
+[rlat, clat] = find((data_latlonwav6(:, 1)) < N1);
+data_latlonwav6(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav6(:, 1)) > N2);
+data_latlonwav6(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav6(:, 2)) < E1);
+data_latlonwav6(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav6(:, 2)) > E2);
+data_latlonwav6(rlat,:)=[];
+
+% File 7 - creating and sorting
+waveform40Hz7 = [];
+for i = 1:length(data7(1, 1, :))
+    waveform40Hz7 = [waveform40Hz7, data7(:, :, i)]; 
+end
+waveform40Hz7 = waveform40Hz7';
+data_latlonwav7 = [lat40Hz7 lon40Hz7 waveform40Hz7];
+[rlat, clat] = find((data_latlonwav7(:, 1)) < N1);
+data_latlonwav7(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav7(:, 1)) > N2);
+data_latlonwav7(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav7(:, 2)) < E1);
+data_latlonwav7(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav7(:, 2)) > E2);
+data_latlonwav7(rlat,:)=[];
+
+% File 8 - creating and sorting
+waveform40Hz8 = [];
+for i = 1:length(data8(1, 1, :))
+    waveform40Hz8 = [waveform40Hz8, data8(:, :, i)]; 
+end
+waveform40Hz8 = waveform40Hz8';
+data_latlonwav8 = [lat40Hz8 lon40Hz8 waveform40Hz8];
+[rlat, clat] = find((data_latlonwav8(:, 1)) < N1);
+data_latlonwav8(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav8(:, 1)) > N2);
+data_latlonwav8(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav8(:, 2)) < E1);
+data_latlonwav8(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav8(:, 2)) > E2);
+data_latlonwav8(rlat,:)=[];
+
+% File 9 - creating and sorting
+waveform40Hz9 = [];
+for i = 1:length(data9(1, 1, :))
+    waveform40Hz9 = [waveform40Hz9, data9(:, :, i)]; 
+end
+waveform40Hz9 = waveform40Hz9';
+data_latlonwav9 = [lat40Hz9 lon40Hz9 waveform40Hz9];
+[rlat, clat] = find((data_latlonwav9(:, 1)) < N1);
+data_latlonwav9(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav9(:, 1)) > N2);
+data_latlonwav9(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav9(:, 2)) < E1);
+data_latlonwav9(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav9(:, 2)) > E2);
+data_latlonwav9(rlat,:)=[];
+
+% File 10 - creating and sorting
+waveform40Hz10 = [];
+for i = 1:length(data10(1, 1, :))
+    waveform40Hz10 = [waveform40Hz10, data10(:, :, i)]; 
+end
+waveform40Hz10 = waveform40Hz10';
+data_latlonwav10 = [lat40Hz10 lon40Hz10 waveform40Hz10];
+[rlat, clat] = find((data_latlonwav10(:, 1)) < N1);
+data_latlonwav10(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav10(:, 1)) > N2);
+data_latlonwav10(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav10(:, 2)) < E1);
+data_latlonwav10(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav10(:, 2)) > E2);
+data_latlonwav10(rlat,:)=[];
+
+% File 11 - creating and sorting
+waveform40Hz11 = [];
+for i = 1:length(data11(1, 1, :))
+    waveform40Hz11 = [waveform40Hz11, data11(:, :, i)]; 
+end
+waveform40Hz11 = waveform40Hz11';
+data_latlonwav11 = [lat40Hz11 lon40Hz11 waveform40Hz11];
+[rlat, clat] = find((data_latlonwav11(:, 1)) < N1);
+data_latlonwav11(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav11(:, 1)) > N2);
+data_latlonwav11(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav11(:, 2)) < E1);
+data_latlonwav11(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav11(:, 2)) > E2);
+data_latlonwav11(rlat,:)=[];
+
+% File 12 - creating and sorting
+waveform40Hz12 = [];
+for i = 1:length(data12(1, 1, :))
+    waveform40Hz12 = [waveform40Hz12, data12(:, :, i)]; 
+end
+waveform40Hz12 = waveform40Hz12';
+data_latlonwav12 = [lat40Hz12 lon40Hz12 waveform40Hz12];
+[rlat, clat] = find((data_latlonwav12(:, 1)) < N1);
+data_latlonwav12(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav12(:, 1)) > N2);
+data_latlonwav12(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav12(:, 2)) < E1);
+data_latlonwav12(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav12(:, 2)) > E2);
+data_latlonwav12(rlat,:)=[];
+
+% File 13 - creating and sorting
+waveform40Hz13 = [];
+for i = 1:length(data13(1, 1, :))
+    waveform40Hz13 = [waveform40Hz13, data13(:, :, i)]; 
+end
+waveform40Hz13 = waveform40Hz13';
+data_latlonwav13 = [lat40Hz13 lon40Hz13 waveform40Hz13];
+[rlat, clat] = find((data_latlonwav13(:, 1)) < N1);
+data_latlonwav13(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav13(:, 1)) > N2);
+data_latlonwav13(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav13(:, 2)) < E1);
+data_latlonwav13(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav13(:, 2)) > E2);
+data_latlonwav13(rlat,:)=[];
+
+% File 14 - creating and sorting
+waveform40Hz14 = [];
+for i = 1:length(data14(1, 1, :))
+    waveform40Hz14 = [waveform40Hz14, data14(:, :, i)]; 
+end
+waveform40Hz14 = waveform40Hz14';
+data_latlonwav14 = [lat40Hz14 lon40Hz14 waveform40Hz14];
+[rlat, clat] = find((data_latlonwav14(:, 1)) < N1);
+data_latlonwav14(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav14(:, 1)) > N2);
+data_latlonwav14(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav14(:, 2)) < E1);
+data_latlonwav14(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav14(:, 2)) > E2);
+data_latlonwav14(rlat,:)=[];
+
+% File 15 - creating and sorting
+waveform40Hz15 = [];
+for i = 1:length(data15(1, 1, :))
+    waveform40Hz15 = [waveform40Hz15, data15(:, :, i)]; 
+end
+waveform40Hz15 = waveform40Hz15';
+data_latlonwav15 = [lat40Hz15 lon40Hz15 waveform40Hz15];
+[rlat, clat] = find((data_latlonwav15(:, 1)) < N1);
+data_latlonwav15(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav15(:, 1)) > N2);
+data_latlonwav15(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav15(:, 2)) < E1);
+data_latlonwav15(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav15(:, 2)) > E2);
+data_latlonwav15(rlat,:)=[];
+
+% File 16 - creating and sorting
+waveform40Hz16 = [];
+for i = 1:length(data16(1, 1, :))
+    waveform40Hz16 = [waveform40Hz16, data16(:, :, i)]; 
+end
+waveform40Hz16 = waveform40Hz16';
+data_latlonwav16 = [lat40Hz16 lon40Hz16 waveform40Hz16];
+[rlat, clat] = find((data_latlonwav16(:, 1)) < N1);
+data_latlonwav16(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav16(:, 1)) > N2);
+data_latlonwav16(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav16(:, 2)) < E1);
+data_latlonwav16(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav16(:, 2)) > E2);
+data_latlonwav16(rlat,:)=[];
+
+% File 17 - creating and sorting
+waveform40Hz17 = [];
+for i = 1:length(data17(1, 1, :))
+    waveform40Hz17 = [waveform40Hz17, data17(:, :, i)]; 
+end
+waveform40Hz17 = waveform40Hz17';
+data_latlonwav17 = [lat40Hz17 lon40Hz17 waveform40Hz17];
+[rlat, clat] = find((data_latlonwav17(:, 1)) < N1);
+data_latlonwav17(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav17(:, 1)) > N2);
+data_latlonwav17(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav17(:, 2)) < E1);
+data_latlonwav17(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav17(:, 2)) > E2);
+data_latlonwav17(rlat,:)=[];
+
+% File 18 - creating and sorting
+waveform40Hz18 = [];
+for i = 1:length(data18(1, 1, :))
+    waveform40Hz18 = [waveform40Hz18, data18(:, :, i)]; 
+end
+waveform40Hz18 = waveform40Hz18';
+data_latlonwav18 = [lat40Hz18 lon40Hz18 waveform40Hz18];
+[rlat, clat] = find((data_latlonwav18(:, 1)) < N1);
+data_latlonwav18(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav18(:, 1)) > N2);
+data_latlonwav18(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav18(:, 2)) < E1);
+data_latlonwav18(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav18(:, 2)) > E2);
+data_latlonwav18(rlat,:)=[];
+
+% File 19 - creating and sorting
+waveform40Hz19 = [];
+for i = 1:length(data19(1, 1, :))
+    waveform40Hz19 = [waveform40Hz19, data19(:, :, i)]; 
+end
+waveform40Hz19 = waveform40Hz19';
+data_latlonwav19 = [lat40Hz19 lon40Hz19 waveform40Hz19];
+[rlat, clat] = find((data_latlonwav19(:, 1)) < N1);
+data_latlonwav19(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav19(:, 1)) > N2);
+data_latlonwav19(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav19(:, 2)) < E1);
+data_latlonwav19(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav19(:, 2)) > E2);
+data_latlonwav19(rlat,:)=[];
+
+% File 20 - creating and sorting
+waveform40Hz20 = [];
+for i = 1:length(data20(1, 1, :))
+    waveform40Hz20 = [waveform40Hz20, data20(:, :, i)]; 
+end
+waveform40Hz20 = waveform40Hz20';
+data_latlonwav20 = [lat40Hz20 lon40Hz20 waveform40Hz20];
+[rlat, clat] = find((data_latlonwav20(:, 1)) < N1);
+data_latlonwav20(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav20(:, 1)) > N2);
+data_latlonwav20(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav20(:, 2)) < E1);
+data_latlonwav20(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav20(:, 2)) > E2);
+data_latlonwav20(rlat,:)=[];
+
+% File 21 - creating and sorting
+waveform40Hz21 = [];
+for i = 1:length(data21(1, 1, :))
+    waveform40Hz21 = [waveform40Hz21, data21(:, :, i)]; 
+end
+waveform40Hz21 = waveform40Hz21';
+data_latlonwav21 = [lat40Hz21 lon40Hz21 waveform40Hz21];
+[rlat, clat] = find((data_latlonwav21(:, 1)) < N1);
+data_latlonwav21(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav21(:, 1)) > N2);
+data_latlonwav21(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav21(:, 2)) < E1);
+data_latlonwav21(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav21(:, 2)) > E2);
+data_latlonwav21(rlat,:)=[];
+
+% File 22 - creating and sorting
+waveform40Hz22 = [];
+for i = 1:length(data22(1, 1, :))
+    waveform40Hz22 = [waveform40Hz22, data22(:, :, i)]; 
+end
+waveform40Hz22 = waveform40Hz22';
+data_latlonwav22 = [lat40Hz22 lon40Hz22 waveform40Hz22];
+[rlat, clat] = find((data_latlonwav22(:, 1)) < N1);
+data_latlonwav22(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav22(:, 1)) > N2);
+data_latlonwav22(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav22(:, 2)) < E1);
+data_latlonwav22(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav22(:, 2)) > E2);
+data_latlonwav22(rlat,:)=[];
+
+% File 23 - creating and sorting
+waveform40Hz23 = [];
+for i = 1:length(data23(1, 1, :))
+    waveform40Hz23 = [waveform40Hz23, data23(:, :, i)]; 
+end
+waveform40Hz23 = waveform40Hz23';
+data_latlonwav23 = [lat40Hz23 lon40Hz23 waveform40Hz23];
+[rlat, clat] = find((data_latlonwav23(:, 1)) < N1);
+data_latlonwav23(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav23(:, 1)) > N2);
+data_latlonwav23(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav23(:, 2)) < E1);
+data_latlonwav23(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav23(:, 2)) > E2);
+data_latlonwav23(rlat,:)=[];
+
+% File 24 - creating and sorting
+waveform40Hz24 = [];
+for i = 1:length(data24(1, 1, :))
+    waveform40Hz24 = [waveform40Hz24, data24(:, :, i)]; 
+end
+waveform40Hz24 = waveform40Hz24';
+data_latlonwav24 = [lat40Hz24 lon40Hz24 waveform40Hz24];
+[rlat, clat] = find((data_latlonwav24(:, 1)) < N1);
+data_latlonwav24(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav24(:, 1)) > N2);
+data_latlonwav24(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav24(:, 2)) < E1);
+data_latlonwav24(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav24(:, 2)) > E2);
+data_latlonwav24(rlat,:)=[];
+
+% File 25 - creating and sorting
+waveform40Hz25 = [];
+for i = 1:length(data25(1, 1, :))
+    waveform40Hz25 = [waveform40Hz25, data25(:, :, i)]; 
+end
+waveform40Hz25 = waveform40Hz25';
+data_latlonwav25 = [lat40Hz25 lon40Hz25 waveform40Hz25];
+[rlat, clat] = find((data_latlonwav25(:, 1)) < N1);
+data_latlonwav25(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav25(:, 1)) > N2);
+data_latlonwav25(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav25(:, 2)) < E1);
+data_latlonwav25(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav25(:, 2)) > E2);
+data_latlonwav25(rlat,:)=[];
+
+% File 26 - creating and sorting
+waveform40Hz26 = [];
+for i = 1:length(data26(1, 1, :))
+    waveform40Hz26 = [waveform40Hz26, data26(:, :, i)]; 
+end
+waveform40Hz26 = waveform40Hz26';
+data_latlonwav26 = [lat40Hz26 lon40Hz26 waveform40Hz26];
+[rlat, clat] = find((data_latlonwav26(:, 1)) < N1);
+data_latlonwav26(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav26(:, 1)) > N2);
+data_latlonwav26(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav26(:, 2)) < E1);
+data_latlonwav26(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav26(:, 2)) > E2);
+data_latlonwav26(rlat,:)=[];
+
+% File 27 - creating and sorting
+waveform40Hz27 = [];
+for i = 1:length(data27(1, 1, :))
+    waveform40Hz27 = [waveform40Hz27, data27(:, :, i)]; 
+end
+waveform40Hz27 = waveform40Hz27';
+data_latlonwav27 = [lat40Hz27 lon40Hz27 waveform40Hz27];
+[rlat, clat] = find((data_latlonwav27(:, 1)) < N1);
+data_latlonwav27(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav27(:, 1)) > N2);
+data_latlonwav27(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav27(:, 2)) < E1);
+data_latlonwav27(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav27(:, 2)) > E2);
+data_latlonwav27(rlat,:)=[];
+
+% File 28 - creating and sorting
+waveform40Hz28 = [];
+for i = 1:length(data28(1, 1, :))
+    waveform40Hz28 = [waveform40Hz28, data28(:, :, i)]; 
+end
+waveform40Hz28 = waveform40Hz28';
+data_latlonwav28 = [lat40Hz28 lon40Hz28 waveform40Hz28];
+[rlat, clat] = find((data_latlonwav28(:, 1)) < N1);
+data_latlonwav28(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav28(:, 1)) > N2);
+data_latlonwav28(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav28(:, 2)) < E1);
+data_latlonwav28(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav28(:, 2)) > E2);
+data_latlonwav28(rlat,:)=[];
+
+% File 29 - creating and sorting
+waveform40Hz29 = [];
+for i = 1:length(data29(1, 1, :))
+    waveform40Hz29 = [waveform40Hz29, data29(:, :, i)]; 
+end
+waveform40Hz29 = waveform40Hz29';
+data_latlonwav29 = [lat40Hz29 lon40Hz29 waveform40Hz29];
+[rlat, clat] = find((data_latlonwav29(:, 1)) < N1);
+data_latlonwav29(rlat,:)=[];
+[rlat, clat] = find((data_latlonwav29(:, 1)) > N2);
+data_latlonwav29(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav29(:, 2)) < E1);
+data_latlonwav29(rlat,:)=[];
+[rlat, clat] = find(abs(data_latlonwav29(:, 2)) > E2);
+data_latlonwav29(rlat,:)=[];
+
+%% Combine all sorted data into one matrix
+latlonwav = [data_latlonwav1; data_latlonwav2; data_latlonwav3; data_latlonwav4; data_latlonwav5; data_latlonwav6;
+    data_latlonwav7; data_latlonwav8; data_latlonwav9; data_latlonwav10; data_latlonwav11; data_latlonwav12;
+    data_latlonwav13; data_latlonwav14; data_latlonwav15; data_latlonwav16; data_latlonwav17; data_latlonwav18;
+    data_latlonwav19; data_latlonwav20; data_latlonwav21; data_latlonwav22; data_latlonwav23; data_latlonwav24;
+    data_latlonwav25; data_latlonwav26; data_latlonwav27; data_latlonwav28; data_latlonwav29];
+
+
+%% Remove all NaN data
+for i = 1:length(latlonwav(1, :))
+    [rlat, clat] = find(isnan((latlonwav(:, i))));
+    latlonwav(rlat,:)=[];
+end
+
+% Amount of data 
+fprintf('Amount of data being analyzed: %d\n', length(latlonwav(:, 1)));
+
+%% Plot data from chosen area over earth to illustrate
+
+load geoid
+figure
+axesm eckert4;
+framem; gridm;
+axis off
+hold on
+geoshow('landareas.shp', 'FaceColor', 'black');
+linem(latlonwav(:, 1), latlonwav(:, 2), 'LineStyle','none', 'LineWidth',2, 'Color','r', ...
+    'Marker','.', 'MarkerSize',10) % All lat/lon from chosen data
+hold off
+
+%% Plot chosen data over the Arctic 
+load coastlines
+figure('Color', 'w')
+axesm('eqaazim','MapLatLimit',[60 90])
+axis off
+framem on
+gridm on
+mlabel on
+plabel on;
+setm(gca,'MLabelParallel',0)
+hold on 
+geoshow(coastlat,coastlon, 'FaceColor', 'black', 'DisplayType', 'polygon')
+linem(latlonwav(:,1), latlonwav(:,2), 'LineStyle','none', 'LineWidth',2, 'Color','r', ...
+    'Marker','.', 'MarkerSize',10) % All lat/lon from chosen data
+hold off
+
+disp('The function sortingWaveformLatitudeLongitutde has been sucessfully executed.');
